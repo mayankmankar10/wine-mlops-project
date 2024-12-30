@@ -1,42 +1,26 @@
-create env
+#!/bin/bash
 
-''''bash
+# Create and Activate Environment
 conda create -n wineq python=3.12.2 -y
-''''
-
-activate env
-''''bash
 conda activate wineq
-''''
 
-craeted a requirements.txt
-
-install the requirements
-
-'''bash
+# Install Dependencies
 pip install -r requirements.txt
 
+# Initialize Git and DVC
 git init
-
 dvc init
-
 dvc add data_given/winequality.csv
 
-git add.
-
+# Make Your First Commit
+git add .
 git commit -m "first commit"
 
-oneliner update for readme file:
-''''bash
+# Update README in One Line
+git add .; git commit -m "update Readme.md"
 
-git add. && commit -m "update Readme.md"
 
+# Link to GitHub Repository
 git remote add origin https://github.com/mayankmankar10/wine-mlops-project.git
-
 git branch -M main
-
- 
-
-
-
-
+git push -u origin main
