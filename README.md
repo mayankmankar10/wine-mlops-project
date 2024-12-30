@@ -26,4 +26,17 @@ git add.
 
 git commit -m "first commit"
 
+oneliner update for readme file:
+''''bash
+
+git add. && commit -m "update Readme.md"
+
+git remote add origin https://github.com/mayankmankar10/wine-mlops-project.git
+
+git branch -M main
+
+ 
+
+
+
 
