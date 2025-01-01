@@ -23,3 +23,14 @@ git add .; git commit -m "update Readme.md"
 git remote add origin https://github.com/mayankmankar10/wine-mlops-project.git
 git branch -M main
 git push -u origin main
+
+# Tox Command
+tox
+# Tox rebuid
+tox -r
+
+# pytest command
+pytest -v
+
+# setup command
+pip install -e .
