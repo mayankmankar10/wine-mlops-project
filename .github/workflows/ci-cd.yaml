@@ -35,11 +35,17 @@ jobs:
     - name: Test with pytest
       run: |
         pytest -v
-    - name: Deploy to Heroku
+    - name: Deploy to Railway
       env:
-        HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-        HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+        RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
+        RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
       if: github.ref == 'refs/heads/main' && job.status == 'success'
       run: |
-        git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
-        git push heroku HEAD:main -f
+        # Install Railway CLI
+        curl -sSL https://railway.app/cli.sh | bash
+        # Authenticate with Railway using the API token
+        railway login --api-key $RAILWAY_API_TOKEN
+        # Link the project (if not already linked)
+        railway link --project $RAILWAY_PROJECT_ID
+        # Deploy the project
+        railway up
